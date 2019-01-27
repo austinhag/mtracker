@@ -1,0 +1,9 @@
+captures/*.jpg
+captures/*.jpg
+dataset/*.jpg
+dataset/faces/*.jpg
+dataset/source/*.jpg
+test/
+trainer/trainer.yml
+trainer/names.json
+__pycache__/
