@@ -7,4 +7,4 @@ test/
 trainer/trainer.yml
 trainer/names.json
 __pycache__/
-config.json
+*.json
