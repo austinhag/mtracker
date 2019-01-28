@@ -10,9 +10,9 @@ from home import turnOnLights, broadcastWarning
 import json
 
 # Setup variables
-sleeptime = 30        # Number of minutes to sleep after detection until resuming
-width = int(832)      # Width of image to capture
-height = int(624)     # Height of image to capture
+sleeptime = 30   # Number of minutes to sleep after detection until resuming
+width = 832      # Width of image to capture
+height = 624     # Height of image to capture
 font = cv2.FONT_HERSHEY_SIMPLEX    # Font for markup on the image
 
 # Setup face detector
