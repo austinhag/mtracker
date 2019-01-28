@@ -7,7 +7,6 @@
 import os
 import cv2
 import numpy as np
-from PIL import Image
 import json
 
 # Path where gathered images were saved
@@ -34,7 +33,7 @@ for imagePath in imagePaths:
     id = names.index(name)
 
     # Read in image
-    img = Image.open(imagePath)
+    img = cv2.imread(imagePath,cv2.IMREAD_GRAYSCALE)
     img_numpy = np.array(img,'uint8')
 
     # Append each face

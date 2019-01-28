@@ -11,12 +11,13 @@ import json
 
 # Setup variables
 sleeptime = 10        # Number of minutes to sleep after detection until resuming
-width = int(1648/2)   # Width of image to capture
-height = int(1232/2)  # Height of image to capture
+width = int(832)   # Width of image to capture
+height = int(624)  # Height of image to capture
 font = cv2.FONT_HERSHEY_SIMPLEX    # Font for markup on the image
 
 # Setup face detector
-detector = cv2.CascadeClassifier('import/haarcascade_frontalface_default.xml');
+# detector = cv2.CascadeClassifier('imports/haarcascade_frontalface_default.xml') # More accurate but slower
+detector = cv2.CascadeClassifier('imports/lbpcascade_frontalface.xml')
 
 # Setup face recognizer
 recognizer = cv2.face.LBPHFaceRecognizer_create()

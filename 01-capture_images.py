@@ -13,13 +13,13 @@ frames = 30  # Total number of frames to capture
 folder = 'dataset/faces/'  # Path for saving gathered images
 
 # Setup camera and settings
-# Raspberry Pi v2 camera has resolutions of 3280 x 2464 (static), 1080p30 and 720p60
 cam = cv2.VideoCapture(0)
 cam.set(3, 1920) # Set frame width
 cam.set(4, 1080) # Set frame height
 
 # Setup face detector 
-detector = cv2.CascadeClassifier('imports/haarcascade_frontalface_default.xml')
+# detector = cv2.CascadeClassifier('imports/haarcascade_frontalface_default.xml') # More accurate but slower
+detector = cv2.CascadeClassifier('imports/lbpcascade_frontalface.xml')
 
 # Enter name of individual being analyzed
 target = input('Enter name and press return: ')
@@ -43,7 +43,7 @@ for count in range(0, frames):
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
     # Detect faces
-    faces = detector.detectMultiScale(gray, 1.3, 5)
+    faces = detector.detectMultiScale(gray, scaleFactor=1.2, minNeighbors=5)
 
     # Process each face 
     for (x,y,w,h) in faces:
