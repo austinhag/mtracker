@@ -80,7 +80,7 @@ for frame in camera.capture_continuous(rawCapture, format="bgr", use_video_port=
             name = "Unknown"
         print(f"{timestr}: {name} - {100-confidence:.1f}%")
 
-        # Save raw images
+        # Save raw image
         cv2.imwrite(f"captures/{timestr}-{name}-{100-confidence:.1f}-RAW.jpg", img)
 
         # Add markup on image and save            
@@ -102,7 +102,7 @@ for frame in camera.capture_continuous(rawCapture, format="bgr", use_video_port=
                 broadcastWarning(f'{child} is on the loose!')
     
                 # Sleep for a defined period
-                time.sleep(sleeptime)
+                time.sleep(sleeptime*60)
     
                 # Resume monitoring
                 detects = [0] * 10
