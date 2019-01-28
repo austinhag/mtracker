@@ -10,9 +10,9 @@ from home import turnOnLights, broadcastWarning
 import json
 
 # Setup variables
-sleeptime = 10        # Number of minutes to sleep after detection until resuming
-width = int(832)   # Width of image to capture
-height = int(624)  # Height of image to capture
+sleeptime = 30        # Number of minutes to sleep after detection until resuming
+width = int(832)      # Width of image to capture
+height = int(624)     # Height of image to capture
 font = cv2.FONT_HERSHEY_SIMPLEX    # Font for markup on the image
 
 # Setup face detector
@@ -57,7 +57,7 @@ for frame in camera.capture_continuous(rawCapture, format="bgr", use_video_port=
     # Generate timestamp
     timestr = datetime.utcnow().strftime("%Y%m%d-%H%M%S_%f")        
     
-    # Covert to grayscale
+    # Convert to grayscale
     gray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
 
     # Detect faces in the image    
@@ -106,7 +106,7 @@ for frame in camera.capture_continuous(rawCapture, format="bgr", use_video_port=
     
                 # Resume monitoring
                 detects = [0] * 10
-                #turnOnLights('off')
+                turnOnLights('off')
                 print('Resuming monitoring...')
         else:
             # If not detected, update sequence accordingly
@@ -119,8 +119,7 @@ for frame in camera.capture_continuous(rawCapture, format="bgr", use_video_port=
     rawCapture.truncate(0)
 
     # Exit if ESC is pressed
-    key = cv2.waitKey(1) & 0xFF 
-    if key == 27:
+    if cv2.waitKey(1) & 0xFF == 27:
         break
 
 # Exit and cleanup

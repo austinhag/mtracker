@@ -1,11 +1,11 @@
 {
-    "SERVER":"192.168.1.100",
+    "SERVER":"[IP address of Google Assistant Relay]",
 	
-    "PORT":"3000",
+    "PORT":"[Port of Google Assistant Relay]",
 
-    "USER":"[Enter google home user name]",
+    "USER":"[Google home user name]",
 
-    "CHILD":"[Enter child name]",
+    "CHILD":"[Child name]",
 
-    "LIGHT_GROUP":"[Enter google home light group name]"
+    "LIGHT_GROUP":"[Google home light group name]"
 }
