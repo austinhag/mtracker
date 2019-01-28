@@ -6,7 +6,7 @@ from picamera.array import PiRGBArray
 from picamera import PiCamera
 from datetime import datetime
 import time
-from home import turnOnLights, broadcastWarning 
+from home import toggleLights, broadcastWarning 
 import json
 
 # Setup variables
@@ -98,15 +98,15 @@ for frame in camera.capture_continuous(rawCapture, format="bgr", use_video_port=
                 print(f'Found {child}!')
     
                 # Turn on lights and broadcast warning
-                turnOnLights('on')
-                broadcastWarning()
+                toggleLights('on')
+                broadcastWarning(f'{child} is on the loose!')
     
                 # Sleep for a defined period
                 time.sleep(sleeptime)
     
                 # Resume monitoring
                 detects = [0] * 10
-                turnOnLights('off')
+                toggleLights('off')
                 print('Resuming monitoring...')
         else:
             # If not detected, update sequence accordingly

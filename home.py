@@ -16,7 +16,7 @@ with open('config.json', 'r') as f:
 url = f'http://{config["SERVER"]}:{config["PORT"]}/assistant'
 
 # Function to turn on lights
-def turnOnLights(change):
+def toggleLights(change):
     # Define command statement
     body = {'command':f'turn {change} {config["LIGHT_GROUP"]}','user':config["USER"]}
     
@@ -34,9 +34,9 @@ def turnOnLights(change):
         print(f'Error: {res.reason}')
 
 # Function to broadcast warning over the Google Home speaker
-def broadcastWarning():
+def broadcastWarning(message):
     # Define command statement
-    body = {'command':f'{config["CHILD"]} is on the loose!','user':'{config["USER"]}','broadcast':'true'}
+    body = {'command':message,'user':'{config["USER"]}','broadcast':'true'}
     
     # Initiate request
     req = urllib.request.Request(url)
